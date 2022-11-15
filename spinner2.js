@@ -1,9 +1,11 @@
-const animation = ['\r|', '\r/', '\r-', '\r\\', '\r|', '\r/', '\r-', '\r\\', '\r|'];
-let timer = 100;
+const spinner = (characters) => {
+  let timer = 100;
+  for (const char of characters) {
+    timer += 200;
+    setTimeout(() => {
+      process.stdout.write(char + '   ');
+    }, timer);
+  }
+};
 
-for (const char of animation) {
-  timer += 200;
-  setTimeout(() => {
-    process.stdout.write(char + '   ');
-  }, timer);
-}
+spinner(['\r|', '\r/', '\r-', '\r\\', '\r|', '\r/', '\r-', '\r\\', '\r|']);
